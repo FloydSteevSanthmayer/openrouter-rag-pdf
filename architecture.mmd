@@ -1,0 +1,17 @@
+flowchart LR
+    subgraph UI [Streamlit UI]
+        UIU["file_uploader()"] --> UIQ["text_input()"]
+    end
+    subgraph Processing [PDF Processing]
+        EX["extract_text_from_pdf()"] --> CH["chunk_text()"]
+    end
+    subgraph Embeddings [Embedding Layer]
+        LD["load_embedder()"] --> EM["embed_texts_local()"] --> FA["FAISS index build"]
+    end
+    subgraph LLM [OpenRouter / Chat]
+        PR["construct prompt"] --> OR["call_openrouter_chat()"]
+    end
+    UIU --> EX
+    CH --> LD
+    FA --> PR
+    UIQ --> OR

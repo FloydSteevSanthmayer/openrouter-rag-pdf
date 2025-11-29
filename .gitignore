@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.env
+.env
+.vscode/
+.venv/
+.venv/*
+
+# Streamlit cache
+.streamlit/
+
+# FAISS index / embeddings
+*.index
+embeddings.npy
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/

@@ -1,0 +1,20 @@
+flowchart LR
+    A["User Uploads PDF in Streamlit UI"]:::start --> B["Extract Text Using PyMuPDF (extract_text_from_pdf)"]:::process;
+    B --> C["Chunk Text (chunk_text)"]:::process;
+    C --> D["Load Embedding Model (SentenceTransformer)"]:::model;
+    D --> E["Generate Local Embeddings (embed_texts_local)"]:::embedding;
+    E --> F["Build FAISS Index (build_faiss_index)"]:::index;
+    F --> G["User Enters Question in Streamlit"]:::start;
+    G --> H["Embed Question + Retrieve Top K Chunks (retrieve_top_k)"]:::embedding;
+    H --> I["Construct Prompt with Context and Question"]:::process;
+    I --> J["Send to OpenRouter Chat Completion (call_openrouter_chat)"]:::llm;
+    J --> K["Display Final Answer in Streamlit"]:::output;
+    K --> L["Generate Follow-up Questions (Second OpenRouter Call)"]:::llm;
+
+    classDef start fill:#D2E3FC,stroke:#4A7BDC,color:#000;
+    classDef process fill:#E8F0FE,stroke:#6D9DFB,color:#000;
+    classDef model fill:#FFF2B2,stroke:#E0C200,color:#000;
+    classDef embedding fill:#FFE1C6,stroke:#D47C2C,color:#000;
+    classDef index fill:#D4F4DD,stroke:#3A8F53,color:#000;
+    classDef llm fill:#FAD7DD,stroke:#C34552,color:#000;
+    classDef output fill:#D5E8D4,stroke:#6A8F6B,color:#000;

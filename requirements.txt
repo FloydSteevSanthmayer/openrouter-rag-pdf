@@ -1,0 +1,8 @@
+streamlit==1.30.0
+PyMuPDF==1.22.5
+requests==2.31.0
+numpy==1.26.4
+faiss-cpu==1.7.4
+sentence-transformers==2.2.2
+torch==2.2.0
+Pillow==10.0.0
