@@ -1,12 +1,3 @@
-# app.py
-"""
-RAG PDF Q&A — Streamlit launcher (improved)
-- Uses local SentenceTransformer embeddings + FAISS
-- Calls OpenRouter chat completions for answer generation
-- Safer API key handling (env or st.secrets), batching, basic error handling
-- Chunk provenance (page numbers) included and shown in UI
-"""
-
 import os
 import re
 import math
